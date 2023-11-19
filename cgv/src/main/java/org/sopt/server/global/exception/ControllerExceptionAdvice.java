@@ -3,8 +3,7 @@ package org.sopt.server.global.exception;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.sopt.practice.common.response.ApiResponse;
-import org.sopt.practice.common.response.ErrorType;
+import org.sopt.server.global.response.ApiResponse;
 import org.sopt.server.global.response.ErrorType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,8 +35,8 @@ public class ControllerExceptionAdvice {
     /**
      * CUSTOM_ERROR
      */
-    @ExceptionHandler(BusinessException.class)
-    protected ResponseEntity<ApiResponse> handleCustomException(BusinessException e) {
+    @ExceptionHandler(CommonException.class)
+    protected ResponseEntity<ApiResponse> handleCustomException(CommonException e) {
 
         log.error("CustomException occured: {}", e.getMessage(), e);
 
