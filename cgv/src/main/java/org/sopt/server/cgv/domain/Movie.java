@@ -13,6 +13,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Movie {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "movie_id")
@@ -34,15 +35,15 @@ public class Movie {
     @Column(name = "running_time", nullable = false)
     private int runningTime;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String country;
+    private Country country;
 
     @Column(nullable = false)
     private String ranking;
 
     @Column(name = "total_audience", nullable = false)
     private String totalAudience;
-
 
     @Column(name = "like_count", nullable = false)
     private int like;

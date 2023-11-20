@@ -18,12 +18,14 @@ public class Region {
     @Column(name = "region_id")
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "region_name", nullable = false)
-    private String name;
+    private RegionName regionName;
 
     @Column(nullable = false)
     private Double distance;
 
     @OneToMany(mappedBy = "region")
     List<Screen> screenList = new ArrayList<>();
+
 }

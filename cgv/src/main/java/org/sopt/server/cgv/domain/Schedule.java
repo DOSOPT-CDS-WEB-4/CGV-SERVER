@@ -20,7 +20,7 @@ public class Schedule {
     @Column(name = "start_time", nullable = false)
     private LocalDateTime startTime;
 
-    @Column(name = "total_seat", nullable = false)
+    @Column(name = "total_seats", nullable = false)
     private int totalSeats;
 
     @Column(name = "empty_seats", nullable = false)
@@ -29,4 +29,5 @@ public class Schedule {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "screen_id")
     private Screen screen;
+
 }
