@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum RegionName {
+
     HONDGAE("홍대"),
     CHEONGDAM("청담씨네시티"),
     MOKDONG("목동"),
@@ -13,4 +14,5 @@ public enum RegionName {
     SHINCHON("신촌아트레온");
 
     private final String name;
+
 }
