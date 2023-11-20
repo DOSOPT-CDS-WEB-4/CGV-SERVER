@@ -1,4 +1,4 @@
 package org.sopt.server.cgv.service;
 
-public class RegionController {
+public class ScheduleService {
 }
