@@ -1,4 +1,4 @@
-package org.sopt.server.global.response;
+package org.sopt.server.cgv.global.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

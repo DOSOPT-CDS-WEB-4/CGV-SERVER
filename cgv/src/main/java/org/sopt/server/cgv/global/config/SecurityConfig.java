@@ -1,4 +1,4 @@
-package org.sopt.server.global.config;
+package org.sopt.server.cgv.global.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

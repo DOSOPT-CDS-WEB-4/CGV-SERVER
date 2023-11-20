@@ -1,7 +1,7 @@
-package org.sopt.server.global.exception;
+package org.sopt.server.cgv.global.exception;
 
 import lombok.Getter;
-import org.sopt.server.global.response.ErrorType;
+import org.sopt.server.cgv.global.response.ErrorType;
 
 @Getter
 public class CommonException extends RuntimeException {

@@ -1,4 +1,4 @@
-package org.sopt.server.global.response;
+package org.sopt.server.cgv.global.response;
 
 
 import lombok.AccessLevel;

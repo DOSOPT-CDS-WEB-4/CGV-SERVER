@@ -1,4 +1,4 @@
-package org.sopt.server.dto;
+package org.sopt.server.cgv.dto;
 
 public class movieListResponseDto {
 }

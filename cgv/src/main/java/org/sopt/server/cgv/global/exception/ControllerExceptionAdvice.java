@@ -1,10 +1,10 @@
-package org.sopt.server.global.exception;
+package org.sopt.server.cgv.global.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.sopt.server.global.response.ApiResponse;
-import org.sopt.server.global.response.ErrorType;
+import org.sopt.server.cgv.global.response.ApiResponse;
+import org.sopt.server.cgv.global.response.ErrorType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
