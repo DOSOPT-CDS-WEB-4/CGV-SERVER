@@ -30,4 +30,7 @@ public class Schedule {
     @JoinColumn(name = "screen_id")
     private Screen screen;
 
+    public void updateSeats() {
+        this.emptySeats -= 2;
+    }
 }
