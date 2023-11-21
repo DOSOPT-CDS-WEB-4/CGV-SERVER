@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.sopt.server.cgv.global.exception.CommonException;
+import org.sopt.server.cgv.global.response.ErrorType;
+import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
@@ -31,6 +34,10 @@ public class Schedule {
     private Screen screen;
 
     public void updateSeats() {
-        this.emptySeats -= 2;
+        if(this.emptySeats < 2) {
+            throw new CommonException(ErrorType.NO_SEAT_SCHEDULE_ERROR);
+        } else {
+            this.emptySeats -= 2;
+        }
     }
 }
