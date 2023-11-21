@@ -21,7 +21,7 @@ public class ApiResponse<T> {
     private T data;
 
     public static ApiResponse<?> success(SuccessType successType) {
-        return new ApiResponse<>(successType.getHttpStatusCode(), successType.getMessage(), true);
+        return new ApiResponse<>(successType.getHttpStatusCode(), successType.getMessage());
     }
 
     public static <T> ApiResponse<T> success(SuccessType successType, T data) {
@@ -29,11 +29,11 @@ public class ApiResponse<T> {
     }
 
     public static ApiResponse<?> error(ErrorType errorType) {
-        return new ApiResponse<>(errorType.getHttpStatusCode(), errorType.getMessage(), false);
+        return new ApiResponse<>(errorType.getHttpStatusCode(), errorType.getMessage());
     }
 
     public static ApiResponse<?> error(ErrorType errorType, String message) {
-        return new ApiResponse<>(errorType.getHttpStatusCode(), message, false);
+        return new ApiResponse<>(errorType.getHttpStatusCode(), message);
     }
 
     public static <T> ApiResponse<T> error(ErrorType errorType, String message, T data) {
