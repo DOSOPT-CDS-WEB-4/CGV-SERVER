@@ -13,7 +13,7 @@ public enum SuccessType {
     /**
      * 200 OK
      */
-    GET_USER_SUCCESS(HttpStatus.OK, "특정 사용자 조회 성공");
+    GET_MOVIE_LIST_SUCCESS(HttpStatus.OK, "무비차트 리스트 조회에 성공했습니다.");
 
     /**
      * 201 CREATED
