@@ -51,6 +51,9 @@ public class Movie {
     @Column(name = "poster", nullable = false)
     private String posterURL;
 
+    @Column(name = "background")
+    private String backgroundURL;
+
     @OneToMany(mappedBy = "movie")
     List<Screen> screenList = new ArrayList<>();
 
