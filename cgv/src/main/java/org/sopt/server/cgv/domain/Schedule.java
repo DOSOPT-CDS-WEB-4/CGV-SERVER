@@ -33,11 +33,11 @@ public class Schedule {
     @JoinColumn(name = "screen_id")
     private Screen screen;
 
-    public void updateSeats() {
+    public void updateSeats(int seats) {
         if(this.emptySeats < 2) {
             throw new CommonException(ErrorType.NO_SEAT_SCHEDULE_ERROR);
         } else {
-            this.emptySeats -= 2;
+            this.emptySeats -= seats;
         }
     }
 }

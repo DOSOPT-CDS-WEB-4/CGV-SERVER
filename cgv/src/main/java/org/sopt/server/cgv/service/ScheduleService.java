@@ -18,7 +18,7 @@ public class ScheduleService {
     @Transactional
     public ReserveResponseDto reserveSchedule(ReserveRequestDto requestDto) {
         Schedule schedule = scheduleRepository.findByIdOrThrow(requestDto.id());
-        schedule.updateSeats();
+        schedule.updateSeats(2);
         return ReserveResponseDto.of(schedule);
     }
 
