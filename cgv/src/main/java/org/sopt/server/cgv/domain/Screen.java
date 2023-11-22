@@ -23,7 +23,7 @@ public class Screen {
     private ScreenType screenType;
 
     @Column(nullable = false)
-    private String Place;
+    private String place;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "movie_id")
