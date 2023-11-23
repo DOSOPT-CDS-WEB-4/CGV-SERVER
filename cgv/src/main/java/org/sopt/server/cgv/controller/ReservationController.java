@@ -14,6 +14,7 @@ import org.sopt.server.cgv.service.ScheduleService;
 import org.sopt.server.cgv.service.ScreenService;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -29,12 +30,13 @@ public class ReservationController {
     @GetMapping("/{movieId}")
     public ApiResponse<QuickReservationResponseDto> registerReservation(@PathVariable Long movieId,
                                                                         @RequestParam(value = "region") String regionName,
+                                                                        @RequestParam(value = "date") LocalDate date,
                                                                         @RequestParam(value = "type", required = false) String screenType) {
         Movie movie = movieService.getMovieInfo(movieId);
         MovieInfoResponseDto movieInfo = MovieInfoResponseDto.of(movie);
         Region region = regionService.getRegionInfo(regionName);
         List<Long> screenIdList = screenService.getScreenIdList(movieId, region.getId(), screenType);
-        List<MovieScreenScheduleResponseDto> movieScreenSchedules = scheduleService.getMovieScreenScheduleInfo(screenIdList, movie.getRunningTime());
+        List<MovieScreenScheduleResponseDto> movieScreenSchedules = scheduleService.getMovieScreenScheduleInfo(screenIdList, movie.getRunningTime(), date);
         return ApiResponse.success(SuccessType.GET_MOVIE_AND_SCREEN_TYPE_AND_SCHEDULE_LIST_SUCCESS, QuickReservationResponseDto.of(
                 movieInfo, region, movieScreenSchedules));
     }
