@@ -14,6 +14,7 @@ public enum SuccessType {
      * 200 OK
      */
     GET_MOVIE_LIST_SUCCESS(HttpStatus.OK, "무비차트 리스트 조회에 성공했습니다."),
+    GET_MOVIE_AND_SCREEN_TYPE_AND_SCHEDULE_LIST_SUCCESS(HttpStatus.OK, "영화 정보 및 상영관, 상영시간 조회에 성공했습니다."),
     PATCH_RESERVE_SUCCESS(HttpStatus.OK, "영화 에매 결제에 성공했습니다.");
 
 

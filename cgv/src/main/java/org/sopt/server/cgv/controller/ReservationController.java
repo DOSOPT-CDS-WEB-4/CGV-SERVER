@@ -33,7 +33,7 @@ public class ReservationController {
         Region region = regionService.getRegionInfo(regionName);
         List<Long> screenIdList = screenService.getScreenIdList(movieId, region.getId(), screenType);
         List<MovieScreenScheduleResponseDto> movieScreenSchedules = scheduleService.getMovieScreenScheduleInfo(screenIdList, movie.getRunningTime());
-        return ApiResponse.success(SuccessType.GET_MOVIE_LIST_SUCCESS, QuickReservationResponseDto.of(
+        return ApiResponse.success(SuccessType.GET_MOVIE_AND_SCREEN_TYPE_AND_SCHEDULE_LIST_SUCCESS, QuickReservationResponseDto.of(
                 movie, region, movieScreenSchedules));
     }
 }
