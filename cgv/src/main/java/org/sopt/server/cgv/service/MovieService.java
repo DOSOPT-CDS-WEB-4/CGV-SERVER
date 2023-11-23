@@ -21,7 +21,7 @@ public class MovieService {
     public List<MovieListResponseDto> getMovieList() {
         return movieRepository.findAll().stream()
                 .map(MovieListResponseDto::of)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public Movie getMovieInfo(Long movieId) {
