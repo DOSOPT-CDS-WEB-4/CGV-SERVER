@@ -22,6 +22,9 @@ public enum ErrorType {
     /**
      * 404 NOT FOUND
      */
+    NOT_FOUND_MOVIE_ERROR(HttpStatus.NOT_FOUND, "존재하지 않는 영화입니다"),
+    NOT_FOUND_REGION_ERROR(HttpStatus.NOT_FOUND, "존재하지 않는 지역입니다"),
+    NOT_FOUND_SCREEN_TYPE_ERROR(HttpStatus.NOT_FOUND, "존재하지 않는 상영관입니다"),
     NOT_FOUND_SCHEDULE_ERROR(HttpStatus.NOT_FOUND, "존재하지 않는 상영 스케줄입니다"),
 
     /**
