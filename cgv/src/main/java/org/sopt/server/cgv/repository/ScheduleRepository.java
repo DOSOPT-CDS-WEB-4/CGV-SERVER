@@ -5,11 +5,14 @@ import org.sopt.server.cgv.global.exception.CommonException;
 import org.sopt.server.cgv.global.response.ErrorType;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 
     default Schedule findByIdOrThrow(Long id) {
         return findById(id).orElseThrow(
                 () -> new CommonException(ErrorType.NOT_FOUND_SCHEDULE_ERROR));
     }
-    
+
+    List<Schedule> findByScreenIdIn(List<Long> screenIdList);
 }

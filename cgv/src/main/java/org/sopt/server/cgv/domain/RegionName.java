@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum RegionName {
 
-    HONDGAE("홍대"),
+    HONGDAE("홍대"),
     CHEONGDAM("청담씨네시티"),
     MOKDONG("목동"),
     PIKADILI("피카디리1958"),

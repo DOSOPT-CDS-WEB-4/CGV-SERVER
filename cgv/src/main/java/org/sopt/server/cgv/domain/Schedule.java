@@ -34,7 +34,7 @@ public class Schedule {
     private Screen screen;
 
     public void updateSeats(int seats) {
-        if(this.emptySeats < 2) {
+        if (this.emptySeats < seats) {
             throw new CommonException(ErrorType.NO_SEAT_SCHEDULE_ERROR);
         } else {
             this.emptySeats -= seats;
