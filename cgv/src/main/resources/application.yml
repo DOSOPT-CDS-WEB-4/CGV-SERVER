@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DATABASE_ENDPOINT_URL}:3306/${DATABASE_NAME}?useSSL=true&useUnicode=true&serverTimezone=Asia/Seoul
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+
+  config:
+    import: application-secret.properties
+
+  jpa:
+    show_sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
