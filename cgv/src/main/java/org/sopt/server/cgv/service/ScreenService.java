@@ -9,6 +9,7 @@ import org.sopt.server.cgv.repository.ScreenRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,20 +19,20 @@ public class ScreenService {
 
     private final ScreenRepository screenRepository;
 
-    public List<Long> getScreenIdList(Long movieId, Long regionId, String screenType) {
-        if (screenType == null) {
+    public List<Long> getScreenIdList(Long movieId, Long regionId, List<String> screenTypes) {
+        if (screenTypes == null) {
             return filterWhenScreenTypeNotExist(movieId, regionId);
         }
         try {
-            return filterWhenScreenTypeExist(movieId, regionId, screenType);
+            return filterWhenScreenTypeExist(movieId, regionId, screenTypes);
         } catch (IllegalArgumentException e) {
             throw new CommonException(ErrorType.NOT_FOUND_SCREEN_TYPE_ERROR);
         }
     }
 
-    private List<Long> filterWhenScreenTypeExist(Long movieId, Long regionId, String screenType) {
-        return screenRepository.findByMovieIdAndRegionIdAndScreenType(movieId, regionId, ScreenType.valueOf(screenType))
-                .stream()
+    private List<Long> filterWhenScreenTypeExist(Long movieId, Long regionId, List<String> screenTypes) {
+        return screenTypes.stream()
+                .flatMap(screenType -> screenRepository.findByMovieIdAndRegionIdAndScreenType(movieId, regionId, ScreenType.valueOf(screenType)).stream())
                 .map(Screen::getId)
                 .toList();
     }
