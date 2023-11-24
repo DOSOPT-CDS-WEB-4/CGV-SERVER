@@ -6,7 +6,7 @@ spring:
     password: ${DATABASE_PASSWORD}
 
   config:
-    import: application-secret.properties
+    import: optional:application-secret.properties
 
   jpa:
     show_sql: true
