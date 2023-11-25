@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -48,6 +49,10 @@ public class Movie {
     @Column(name = "like_count", nullable = false)
     private int like;
 
+    @Column(name = "like_able")
+    @ColumnDefault(value = "false")
+    private boolean likeAble;
+
     @Column(name = "poster", nullable = false)
     private String posterURL;
 
@@ -56,5 +61,11 @@ public class Movie {
 
     @OneToMany(mappedBy = "movie")
     List<Screen> screenList = new ArrayList<>();
+
+    public boolean applyLike() {
+        like += likeAble ? 1 : -1;
+        likeAble = !likeAble;
+        return likeAble;
+    }
 
 }

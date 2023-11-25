@@ -28,4 +28,10 @@ public class MovieService {
         return movieRepository.findByIdOrThrow(movieId);
     }
 
+    @Transactional
+    public boolean applyLike(Long movieId) {
+        Movie movie = movieRepository.findByIdOrThrow(movieId);
+        return movie.applyLike();
+    }
+
 }
