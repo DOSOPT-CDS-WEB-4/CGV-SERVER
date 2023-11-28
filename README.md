@@ -6,7 +6,7 @@
 | :---: | :---: | 
 | <img width="285" alt="스크린샷 2023-11-22 오후 3 03 31" src="https://github.com/DOSOPT-CDS-WEB-4/CGV-SERVER/assets/75068759/9aae28ff-397f-4f02-902b-c047fef294bd"> | <img width="285" alt="스크린샷 2023-11-22 오후 3 03 31" src="https://github.com/DOSOPT-CDS-WEB-4/CGV-SERVER/assets/75068759/9aae28ff-397f-4f02-902b-c047fef294bd">| 
 | [0lynny](https://github.com/0lynny) | [Chan531](https://github.com/Chan531) |
-| 프로젝트 초기 세팅<br>[GET] 영화 차트 조회 API<br> [PATCH] 결제하기 API | ERD 설계<br>[GET] 영화 정보 및 상영관 정보 조회 API<br>[GET]지역, 날짜, 상영관 필터링 API | 
+| 프로젝트 초기 세팅<br>[GET] 영화 차트 조회 API<br> [PATCH] 결제하기 API | ERD 설계<br>[GET] 영화 정보 및 지역, 날짜, 상영관 필터링을 통해 상영시간 정보 조회 API<br>[PATCH]영화 좋아요 및 좋아요 취소 API | 
 
 ### 📁 Foldering
 ```
