@@ -1,9 +1,12 @@
 package org.sopt.server.cgv.dto.response;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.sopt.server.cgv.domain.*;
 
 import java.time.LocalDate;
 
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public record MovieInfoResponseDto(
         String title,
         String summary,
