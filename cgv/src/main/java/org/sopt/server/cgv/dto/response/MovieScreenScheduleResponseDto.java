@@ -1,10 +1,13 @@
 package org.sopt.server.cgv.dto.response;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.sopt.server.cgv.domain.Schedule;
 import org.sopt.server.cgv.domain.ScreenType;
 
 import java.time.LocalDateTime;
 
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public record MovieScreenScheduleResponseDto(
         Long scheduleId,
         ScreenType screenType,
