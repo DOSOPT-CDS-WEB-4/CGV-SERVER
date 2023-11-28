@@ -53,7 +53,8 @@
 ```
 
 ## 🔗 ERD
-![image](https://github.com/DOSOPT-CDS-WEB-4/CGV-SERVER/assets/81404890/5bc001d5-a5b6-4031-b292-66060f5904fe)
+![image](https://github.com/DOSOPT-CDS-WEB-4/CGV-SERVER/assets/81404890/a48b53ef-0494-4be5-8588-55770e486a54)
+
 
 ## 📄 API 명세서
 [CGV API 명세서](https://snapdragon-desk-8fd.notion.site/b72dcc2bd6ed422aa341fc15eb330b43?v=d54985980f3949b199f65c85c215e0a6&pvs=4)
