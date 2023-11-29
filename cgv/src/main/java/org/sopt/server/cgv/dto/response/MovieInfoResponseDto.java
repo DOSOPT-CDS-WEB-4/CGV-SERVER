@@ -5,12 +5,13 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.sopt.server.cgv.domain.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public record MovieInfoResponseDto(
         String title,
         String summary,
-        LocalDate openingDate,
+        String openingDate,
         String genre,
         int runningTime,
         String country,
@@ -21,7 +22,7 @@ public record MovieInfoResponseDto(
         return new MovieInfoResponseDto(
                 movie.getTitle(),
                 movie.getSummary(),
-                movie.getOpeningDate(),
+                movie.getOpeningDate().format(DateTimeFormatter.ofPattern("yyyy.MM.dd")),
                 movie.getGenre().getName(),
                 movie.getRunningTime(),
                 movie.getCountry().getName(),
