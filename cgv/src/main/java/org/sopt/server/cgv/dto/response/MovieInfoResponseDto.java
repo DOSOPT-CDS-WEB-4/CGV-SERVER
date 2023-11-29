@@ -11,9 +11,9 @@ public record MovieInfoResponseDto(
         String title,
         String summary,
         LocalDate openingDate,
-        Genre genre,
+        String genre,
         int runningTime,
-        Country country,
+        String country,
         String poster,
         String background
 ) {
@@ -22,9 +22,9 @@ public record MovieInfoResponseDto(
                 movie.getTitle(),
                 movie.getSummary(),
                 movie.getOpeningDate(),
-                movie.getGenre(),
+                movie.getGenre().getName(),
                 movie.getRunningTime(),
-                movie.getCountry(),
+                movie.getCountry().getName(),
                 movie.getPosterURL(),
                 movie.getBackgroundURL()
         );

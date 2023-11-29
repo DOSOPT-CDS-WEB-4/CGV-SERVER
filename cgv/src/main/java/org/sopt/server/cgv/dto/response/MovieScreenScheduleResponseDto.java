@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public record MovieScreenScheduleResponseDto(
         Long scheduleId,
-        ScreenType screenType,
+        String screenType,
         String place,
         LocalDateTime startTime,
         LocalDateTime endTime,
@@ -21,7 +21,7 @@ public record MovieScreenScheduleResponseDto(
     public static MovieScreenScheduleResponseDto of(Schedule schedule, LocalDateTime endTime, boolean reservationAvailability) {
         return new MovieScreenScheduleResponseDto(
                 schedule.getId(),
-                schedule.getScreen().getScreenType(),
+                schedule.getScreen().getScreenType().getName(),
                 schedule.getScreen().getPlace(),
                 schedule.getStartTime(),
                 endTime,
