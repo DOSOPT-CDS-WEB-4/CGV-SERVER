@@ -12,6 +12,7 @@ public record QuickReservationResponseDto(
         MovieInfoResponseDto movieInfo,
         List<RegionName> regionNames,
         RegionName currentRegion,
+        Double distance,
         List<ScreenType> screenTypes,
         List<MovieScreenScheduleResponseDto> movieScreenSchedules
 ) {
@@ -20,6 +21,7 @@ public record QuickReservationResponseDto(
                 movieInfo,
                 Arrays.stream(RegionName.values()).toList(),
                 region.getRegionName(),
+                region.getDistance(),
                 Arrays.stream(ScreenType.values()).toList(),
                 movieScreenSchedules
         );
