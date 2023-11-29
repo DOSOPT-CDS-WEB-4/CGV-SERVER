@@ -6,14 +6,16 @@ import org.sopt.server.cgv.domain.Schedule;
 import org.sopt.server.cgv.domain.ScreenType;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public record MovieScreenScheduleResponseDto(
         Long scheduleId,
-        ScreenType screenType,
+        String screenType,
         String place,
-        LocalDateTime startTime,
-        LocalDateTime endTime,
+        String date,
+        String startTime,
+        String endTime,
         int totalSeats,
         int emptySeats,
         boolean reservationAvailability
@@ -21,10 +23,11 @@ public record MovieScreenScheduleResponseDto(
     public static MovieScreenScheduleResponseDto of(Schedule schedule, LocalDateTime endTime, boolean reservationAvailability) {
         return new MovieScreenScheduleResponseDto(
                 schedule.getId(),
-                schedule.getScreen().getScreenType(),
+                schedule.getScreen().getScreenType().getName(),
                 schedule.getScreen().getPlace(),
-                schedule.getStartTime(),
-                endTime,
+                schedule.getStartTime().format(DateTimeFormatter.ofPattern("yyyy.MM.dd")),
+                schedule.getStartTime().format(DateTimeFormatter.ofPattern("HH:mm")),
+                endTime.format(DateTimeFormatter.ofPattern("HH:mm")),
                 schedule.getTotalSeats(),
                 schedule.getEmptySeats(),
                 reservationAvailability
