@@ -31,16 +31,12 @@ public class ReservationController {
     @GetMapping("/{movieId}")
     public ApiResponse<QuickReservationResponseDto> registerReservation(@PathVariable Long movieId,
                                                                         @RequestParam(value = "region") String regionName,
-                                                                        @RequestParam(value = "date", required = false) LocalDate date,
                                                                         @RequestParam(value = "type", required = false) List<String> screenTypes) {
         Movie movie = movieService.getMovieInfo(movieId);
         MovieInfoResponseDto movieInfo = MovieInfoResponseDto.of(movie);
         Region region = regionService.getRegionInfo(regionName);
         List<Long> screenIdList = screenService.getScreenIdList(movieId, region.getId(), screenTypes);
-        if (date == null) {
-            date = LocalDate.now();
-        }
-        List<MovieScreenScheduleResponseDto> movieScreenSchedules = scheduleService.getMovieScreenScheduleInfo(screenIdList, movie.getRunningTime(), date);
+        List<MovieScreenScheduleResponseDto> movieScreenSchedules = scheduleService.getMovieScreenScheduleInfo(screenIdList, movie.getRunningTime());
         return ApiResponse.success(SuccessType.GET_MOVIE_AND_SCREEN_TYPE_AND_SCHEDULE_LIST_SUCCESS, QuickReservationResponseDto.of(
                 movieInfo, region, movieScreenSchedules));
     }

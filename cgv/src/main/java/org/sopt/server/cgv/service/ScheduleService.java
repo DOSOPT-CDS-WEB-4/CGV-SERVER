@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,14 +29,25 @@ public class ScheduleService {
         return ReserveResponseDto.of(schedule);
     }
 
-    public List<MovieScreenScheduleResponseDto> getMovieScreenScheduleInfo(List<Long> screenIdList, int runningTime, LocalDate date) {
+    public List<MovieScreenScheduleResponseDto> getMovieScreenScheduleInfo(List<Long> screenIdList, int runningTime) {
         return scheduleRepository.findByScreenIdIn(screenIdList)
                 .stream()
-                .filter(schedule -> schedule.getStartTime().toLocalDate().equals(date))
-                .map(schedule -> MovieScreenScheduleResponseDto.of(
-                        schedule,
-                        schedule.getStartTime().plusHours(runningTime / HOUR).plusMinutes(runningTime % HOUR),
-                        schedule.getStartTime().isBefore(LocalDateTime.now())
-                )).toList();
+                .filter(schedule -> isScheduleInWeek(schedule.getStartTime().toLocalDate()))
+                .map(schedule -> createResponseDto(schedule, runningTime)).toList();
     }
+
+    private boolean isScheduleInWeek(LocalDate date) {
+        return !date.isBefore(LocalDate.now()) && !date.isAfter(LocalDate.now().plusDays(7));
+    }
+
+    private MovieScreenScheduleResponseDto createResponseDto(Schedule schedule, int runningTime) {
+        LocalDateTime endTime = calculateEndTime(schedule.getStartTime(), runningTime);
+        boolean isPast = schedule.getStartTime().isBefore(LocalDateTime.now());
+        return MovieScreenScheduleResponseDto.of(schedule, endTime, isPast);
+    }
+
+    private LocalDateTime calculateEndTime(LocalDateTime startTime, int runningTime) {
+        return startTime.plusHours(runningTime / HOUR).plusMinutes(runningTime % HOUR);
+    }
+
 }
