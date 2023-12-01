@@ -42,7 +42,7 @@ public class ScheduleService {
 
     private MovieScreenScheduleResponseDto createResponseDto(Schedule schedule, int runningTime) {
         LocalDateTime endTime = calculateEndTime(schedule.getStartTime(), runningTime);
-        boolean isPast = schedule.getStartTime().isBefore(LocalDateTime.now());
+        boolean isPast = !(schedule.getStartTime().isBefore(LocalDateTime.now()));
         return MovieScreenScheduleResponseDto.of(schedule, endTime, isPast);
     }
 
